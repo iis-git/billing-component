@@ -1,0 +1,295 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  margin: 0 auto;
+  width: 1440px;
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  color: hsl(227deg, 35%, 25%);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff;
+  -webkit-box-shadow: -2px 3px 16px 2px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: -2px 3px 16px 2px rgba(0, 0, 0, 0.34);
+  box-shadow: -2px 3px 16px 2px rgba(0, 0, 0, 0.34);
+}
+
+.header {
+  height: 150px;
+  margin: 70px auto 30px auto;
+  text-align: center;
+  background-image: url(../images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.header__title {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.header__description {
+  color: hsl(225deg, 20%, 60%);
+}
+
+.main {
+  margin-top: 100px;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: 0% -55%;
+}
+
+.pricing-card {
+  min-width: 40%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+.pricing-card__top {
+  width: 100%;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.pricing-card__top .views-title {
+  color: hsl(225deg, 20%, 60%);
+}
+.pricing-card__top .price {
+  display: flex;
+  align-items: center;
+  color: hsl(225deg, 20%, 60%);
+}
+.pricing-card__top .costs {
+  color: hsl(227deg, 35%, 25%);
+  font-size: 30px;
+  font-weight: 800;
+}
+.pricing-card__range-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: hsl(225deg, 20%, 60%);
+  font-size: 12px;
+}
+.pricing-card__range-block .price-range {
+  width: 90%;
+  -webkit-appearance: none;
+  outline: none;
+  height: 5px;
+  background: linear-gradient(90deg, hsl(224deg, 65%, 95%) 60%, hsl(224deg, 65%, 95%) 60%);
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 10px;
+}
+.pricing-card__range-block .price-range:hover {
+  opacity: 1;
+}
+.pricing-card__range-block .price-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 27px;
+  width: 27px;
+  background-color: hsl(174deg, 86%, 45%);
+  background-image: url(../images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 30px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 15px 16px 2px rgba(16, 213, 194, 0.34);
+  -moz-box-shadow: 0px 15px 16px 2px rgba(16, 213, 194, 0.34);
+  box-shadow: 0px 15px 16px 2px rgba(16, 213, 194, 0.34);
+}
+.pricing-card .toggle-div {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 65px 30px auto;
+}
+.pricing-card .toggle-div .discount {
+  display: inline-block;
+  padding: 1px 2px;
+  margin-top: 2px;
+  background-color: hsl(14deg, 92%, 95%);
+  color: hsl(15deg, 100%, 70%);
+  border-radius: 3px;
+  font-size: 10px;
+}
+.pricing-card .toggle-bg {
+  background: hsl(223deg, 50%, 87%);
+  display: block;
+  float: left;
+  height: 16px;
+  position: relative;
+  width: 32px;
+  border-radius: 8px;
+}
+.pricing-card .toggle-bg input {
+  height: 28px;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  top: -10px;
+  width: 38px;
+  z-index: 2;
+}
+.pricing-card .switch {
+  background: #fff;
+  display: block;
+  margin-bottom: -2px;
+  float: left;
+  height: 12px;
+  left: 1px;
+  position: relative;
+  top: 1.5px;
+  width: 12px;
+  z-index: 1;
+  border-radius: 8px;
+  transition: left 0.2s ease;
+}
+.pricing-card .toggle-bg:hover {
+  cursor: pointer;
+  background-color: hsl(174deg, 86%, 45%);
+}
+.pricing-card .toggle-bg input:checked ~ .switch {
+  left: 1px;
+}
+.pricing-card .toggle-bg input ~ :checked ~ .switch {
+  left: 19px;
+}
+.pricing-card .toggle-bg input:checked {
+  z-index: 0;
+}
+.pricing-card__bottom {
+  width: 100%;
+  padding: 20px;
+}
+.pricing-card__bottom::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: hsl(223deg, 50%, 87%);
+}
+.pricing-card__bottom-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.pricing-card__bottom-content ul {
+  padding-left: 0;
+}
+.pricing-card__bottom-content .service {
+  display: block;
+  color: hsl(225deg, 20%, 60%);
+  list-style-type: none;
+}
+.pricing-card__bottom-content .service::before {
+  content: url(../images/icon-check.svg);
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+}
+.pricing-card__btn {
+  outline: none;
+  border-radius: 30px;
+  background-color: hsl(227deg, 35%, 25%);
+  padding: 10px 25px;
+}
+.pricing-card__btn a {
+  text-decoration: none;
+  color: hsl(224deg, 65%, 95%);
+}
+
+/*# sourceMappingURL=style.css.map */
